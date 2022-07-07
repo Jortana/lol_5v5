@@ -9,5 +9,8 @@ module.exports = {
       }
     }
   },
+  daisyui: {
+    themes: ['light', 'dark', 'night', 'coffee', 'winter']
+  },
   plugins: [require('tailwind-gradient-mask-image'), require('daisyui')]
 }
