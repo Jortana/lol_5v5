@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import logo from './logo_lol.png'
 import { ReactComponent as UserIcon } from './user.svg'
 
 import toast, { Toaster } from 'react-hot-toast'
@@ -73,7 +72,11 @@ export default function NavMenu() {
         }}
       />
       <div>
-        <img className="w-20 h-20 mx-auto" src={logo} alt="logo" />
+        <img
+          className="w-20 h-20 mx-auto"
+          src="/imgs/logo_lol.png"
+          alt="logo"
+        />
         <div className="text-[#c08f31] text-xl font-bold text-center m-3">
           <h1>⚣ 赛区 5v5</h1>
         </div>
