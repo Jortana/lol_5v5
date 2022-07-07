@@ -3,7 +3,7 @@ import BasePage from '../BasePage'
 const routes = [
   {
     path: '/',
-    redirect: '/home/players'
+    redirect: '/home'
   },
   {
     path: '/home',
