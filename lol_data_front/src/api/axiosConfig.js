@@ -2,13 +2,12 @@
 import axios from 'axios'
 
 //保存环境变量
-// const isPrd = process.env.NODE_ENV === 'production'
+const isPrd = process.env.NODE_ENV === 'production'
 
 //区分开发环境还是生产环境基础URL
-// export const baseUrl = isPrd
-//   ? 'https://www.production.com'
-//   : 'http://www.development.com'
-export const baseUrl = 'http://localhost:9002'
+export const baseUrl = isPrd
+  ? 'http://192.168.5.200:9002'
+  : 'http://localhost:9002'
 
 //设置axios基础路径
 const service = axios.create({
