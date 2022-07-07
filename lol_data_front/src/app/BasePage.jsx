@@ -20,7 +20,7 @@ export default function BasePage() {
           <NavMenu />
         </div>
         <div className="flex-1 ml-40 overflow-x-auto bg-base-300">
-          {/* <Outlet /> */}
+          <Outlet />
           {/* <RouterWaiter routes={routes} onRouteBefore={onRouteBefore} /> */}
         </div>
       </div>
