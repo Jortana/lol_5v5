@@ -6,7 +6,7 @@ const isPrd = process.env.NODE_ENV === 'production'
 
 //区分开发环境还是生产环境基础URL
 export const baseUrl = isPrd
-  ? 'http://jortana.tech:9002'
+  ? 'http://1.117.226.132:9002'
   : 'http://localhost:9002'
 
 //设置axios基础路径
