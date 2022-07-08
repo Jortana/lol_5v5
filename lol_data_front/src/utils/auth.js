@@ -5,7 +5,7 @@ export const checkLogin = () => {
   const userInfo = JSON.parse(localStorage.getItem('userInfo'))
   if (!userInfo || new Date() > new Date(userInfo.expireTime)) {
     localStorage.clear()
-    return false
+    return { isLogin: false }
   }
-  return true
+  return { userInfo, isLogin: true }
 }

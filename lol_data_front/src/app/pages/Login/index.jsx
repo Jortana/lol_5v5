@@ -12,7 +12,7 @@ export default function Login() {
 
   // 如果已经登录就跳转到 pages 页面
   useEffect(() => {
-    const isLogin = checkLogin()
+    const { isLogin } = checkLogin()
     if (isLogin) {
       navigate('/')
     }
@@ -45,9 +45,9 @@ export default function Login() {
         localStorage.setItem('userInfo', JSON.stringify(data))
         const redirect = search.get('redirect')
         if (redirect === null) {
-          navigate('/')
+          navigate('/', { replace: true })
         } else {
-          navigate(`${redirect}`)
+          navigate(`${redirect}`, { replace: true })
         }
       } else {
         toast.dismiss()

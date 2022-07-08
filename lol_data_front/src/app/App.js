@@ -1,14 +1,14 @@
 // import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 // import AppFrame from '../layout/frame/AppFrame'
 // import BasePage from './BasePage'
-import RouterWaiter from 'react-router-waiter'
+// import RouterWaiter from 'react-router-waiter'
+import { useRoutes } from 'react-router-dom'
 
 import routes from './routes'
-import onRouteBefore from './routes/onRouteBefore'
 
 function App() {
-  // return <BasePage />
-  return <RouterWaiter routes={routes} onRouteBefore={onRouteBefore} />
+  const element = useRoutes(routes)
+  return <>{element}</>
 }
 
 export default App

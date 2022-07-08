@@ -13,7 +13,8 @@ export default function NavMenu() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (checkLogin()) {
+    const loginStatus = checkLogin()
+    if (loginStatus.isLogin) {
       setIsLogin(true)
     }
   }, [])

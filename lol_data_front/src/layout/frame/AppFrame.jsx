@@ -1,19 +1,19 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
-import Header from './Header'
-import Footer from './Footer'
+import NavMenu from '../../app/components/NavMenu'
 
-interface LayoutPropTypes {
-  children: React.ReactNode;
-}
-
-export default function AppFrame(props: LayoutPropTypes) {
-  const { children } = props
+export default function AppFrame() {
   return (
     <>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <div className="bg-[#1c2128] min-h-screen flex">
+        <div className="fixed h-screen">
+          <NavMenu />
+        </div>
+        <div className="flex-1 ml-40 overflow-x-auto bg-base-300">
+          <Outlet />
+        </div>
+      </div>
     </>
   )
 }
