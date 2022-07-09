@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 
 import { getLastTime, updateGames, getStatus, analyzeGames } from '../../../api'
-import galio from './galio.png'
+// import galio from './galio.jpg'
 
 export default function Update() {
   // 代表当前的 tab 是哪一个，0 代表更新数据页，1 代表数据详情页
@@ -199,11 +199,12 @@ export default function Update() {
         }}
       />
       <div className="hero-content flex-col lg:flex-row w-full">
-        <img
+        <div className="h-96 w-96 bg-[url('/public/imgs/galio_update.jpg')] bg-cover rounded-lg shadow-2xl"></div>
+        {/* <img
           src={galio}
           alt="hero-img"
-          className="h-96 rounded-lg shadow-2xl"
-        />
+          className="h-[500px] rounded-lg shadow-2xl"
+        /> */}
         <div className="ml-2 card shadow-2xl bg-base-100 w-full">
           <div className="card-body h-[330px] flex justify-between">
             <div className="flex">

@@ -1,6 +1,7 @@
 import { Navigate, useNavigate } from 'react-router-dom'
 
 import AppFrame from '../../layout/frame/AppFrame'
+import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Players from '../pages/Players'
 import Games from '../pages/Games'
@@ -42,6 +43,14 @@ const element = [
     element: <AppFrame />,
     children: [
       {
+        path: '/home',
+        element: (
+          <TitleAuth title="首页">
+            <Home />
+          </TitleAuth>
+        )
+      },
+      {
         path: '/players',
         element: (
           <TitleAuth title="重要数据">
@@ -75,7 +84,7 @@ const element = [
       },
       {
         path: '/',
-        element: <Navigate to="/players" />
+        element: <Navigate to="/home" />
       }
     ]
   },

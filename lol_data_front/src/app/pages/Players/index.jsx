@@ -101,7 +101,7 @@ export default function Players() {
           alt="background"
         />
       </div>
-      <div className="relative px-10 pb-10 pt-20">
+      <div className="relative px-24 pb-10 pt-20 max-w-screen-2xl mx-auto">
         <h2 className="text-bright-text text-3xl font-bold tracking-wide pb-20">
           选手数据
         </h2>

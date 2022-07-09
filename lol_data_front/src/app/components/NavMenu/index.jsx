@@ -22,6 +22,10 @@ export default function NavMenu() {
   useEffect(() => {
     const baseMenu = [
       {
+        label: '首页',
+        to: 'home'
+      },
+      {
         label: '重要数据',
         to: 'players'
       },
