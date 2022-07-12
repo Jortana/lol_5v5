@@ -1,3 +1,3 @@
-const analyze = require('./analyze')
+const matchAnalyze = require('./matchAnalyze')
 
-analyze()
+matchAnalyze()

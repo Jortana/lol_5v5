@@ -11,6 +11,11 @@ const playerSchema = new mongoose.Schema({
     type: String,
     requied: true
   },
+  // 头像
+  profileIconId: {
+    type: Number,
+    default: 23
+  },
   // 场数
   gameTotal: {
     type: Number,

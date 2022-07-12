@@ -2,7 +2,13 @@ import React, { useEffect, useState, useRef } from 'react'
 
 import toast, { Toaster } from 'react-hot-toast'
 
-import { getLastTime, updateGames, getStatus, analyzeGames } from '../../../api'
+import {
+  getLastTime,
+  updateGames,
+  getStatus,
+  analyzeGames,
+  matchAnalyzeGames
+} from '../../../api'
 // import galio from './galio.jpg'
 
 export default function Update() {
@@ -91,6 +97,19 @@ export default function Update() {
           toast.dismiss()
           toast.error('服务器错误')
         }
+        matchAnalyzeGames()
+          .then((response) => {
+            const { code, data } = response.data
+            if (code === 200) {
+              toast.dismiss()
+              toast.success(data.message)
+            } else {
+              toast.dismiss()
+              toast.error('服务器错误')
+            }
+            updateStatus()
+          })
+          .catch()
         setLoading(false)
         updateStatus()
       })
@@ -141,16 +160,28 @@ export default function Update() {
               </div>
               <div className="divider divider-horizontal"></div>
               <div className="flex flex-col justify-center items-center">
-                <span className="text-slate-600">已分析场数</span>
-                <span className="text-5xl font-bold text-secondary mt-2">
-                  {status.analyzed} 场
+                <span className="text-slate-600">选手数据分析</span>
+                <span
+                  className={`text-5xl font-bold ${
+                    status.analyzed === status.total
+                      ? 'text-primary'
+                      : 'text-secondary'
+                  }  mt-2`}
+                >
+                  {status.analyzed} / {status.total} 场
                 </span>
               </div>
               <div className="divider divider-horizontal"></div>
               <div className="flex flex-col justify-center items-center">
-                <span className="text-slate-600">待分析场数</span>
-                <span className="text-5xl font-bold text-neutral-content mt-2">
-                  {status.others} 场
+                <span className="text-slate-600">匹配数据分析</span>
+                <span
+                  className={`text-5xl font-bold ${
+                    status.matchAnalyzed === status.total
+                      ? 'text-primary'
+                      : 'text-secondary'
+                  }  mt-2`}
+                >
+                  {status.matchAnalyzed} / {status.total} 场
                 </span>
               </div>
             </div>

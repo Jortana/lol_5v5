@@ -4,6 +4,7 @@ import AppFrame from '../../layout/frame/AppFrame'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Players from '../pages/Players'
+import Match from '../pages/Match'
 import Games from '../pages/Games'
 import Rate from '../pages/Rate'
 import Update from '../pages/Update'
@@ -55,6 +56,14 @@ const element = [
         element: (
           <TitleAuth title="重要数据">
             <Players />
+          </TitleAuth>
+        )
+      },
+      {
+        path: '/match',
+        element: (
+          <TitleAuth title="匹配数据">
+            <Match />
           </TitleAuth>
         )
       },

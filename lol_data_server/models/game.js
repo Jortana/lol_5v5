@@ -69,6 +69,10 @@ const gameSchema = new mongoose.Schema({
   analyzed: {
     type: Boolean,
     default: false
+  },
+  matchAnalyzed: {
+    type: Boolean,
+    default: false
   }
 })
 

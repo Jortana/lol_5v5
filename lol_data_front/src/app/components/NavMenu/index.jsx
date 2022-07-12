@@ -30,6 +30,10 @@ export default function NavMenu() {
         to: 'players'
       },
       {
+        label: '匹配数据',
+        to: 'match'
+      },
+      {
         label: '比赛数据',
         to: 'games'
       },
@@ -76,7 +80,12 @@ export default function NavMenu() {
           }
         }}
       />
-      <div>
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          navigate('/home')
+        }}
+      >
         <img
           className="w-20 h-20 mx-auto"
           src="/imgs/logo_lol.png"

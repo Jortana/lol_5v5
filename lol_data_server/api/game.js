@@ -14,7 +14,13 @@ router.post('/games', auth, gameController.updateGames)
 // 获取游戏统计情况
 router.get('/status', gameController.getStatus)
 
-// 分析游戏数据
-router.patch('/games', auth, gameController.analyzeGames)
+// 分析选手游戏数据
+router.patch('/players', auth, gameController.analyzeGames)
+
+// 分析选手匹配数据
+router.patch('/match', auth, gameController.matchAnalyzeGames)
+
+// 获取选手匹配数据情况
+router.get('/match', gameController.getMatchStatus)
 
 module.exports = router

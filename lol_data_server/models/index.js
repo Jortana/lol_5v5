@@ -15,7 +15,7 @@ db.on('error', (err) => {
 })
 
 // 当连接成功的时候
-db.once('open', function () {
+db.once('open', () => {
   console.log('MongoDB 数据库连接成功')
 })
 
@@ -25,5 +25,6 @@ module.exports = {
   Champion: mongoose.model('Champion', require('./champion')),
   Version: mongoose.model('Version', require('./version')),
   Player: mongoose.model('Player', require('./player')),
-  User: mongoose.model('User', require('./user'))
+  User: mongoose.model('User', require('./user')),
+  Match: mongoose.model('Match', require('./match'))
 }

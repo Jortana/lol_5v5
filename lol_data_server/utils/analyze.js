@@ -74,7 +74,13 @@ const analyze = async () => {
           summonerName: curPlayer.summonerName
         })
       }
+      player.profileIconId = curPlayer.profileIconId
       // player = player.toJSON()
+
+      // 进行选手信息的关联
+      // console.log(' player._id', player._id)
+      games[gameIndex].participants[i].playerId = player._id
+      // console.log(games[gameIndex].participants[i].playerId)
 
       player.gameTotal += 1
       const { teamId, stats, timeline } = curPlayer
@@ -268,11 +274,19 @@ const analyze = async () => {
     // )
   }
 
+  // console.log(games[0].participants[0])
+  // 保存分析过的数据
   const unsaveGames = []
   games.forEach((game) => {
     const unsaveGame = game
     unsaveGame.analyzed = true
-    unsaveGames.push(unsaveGame.save())
+    unsaveGame.participants = [...unsaveGame.participants]
+    // unsaveGames.push(unsaveGame.save())
+    unsaveGames.push(
+      Game.findByIdAndUpdate(unsaveGame._id, {
+        $set: { analyzed: true, participants: unsaveGame.participants }
+      })
+    )
   })
   await Promise.all(unsaveGames)
 }

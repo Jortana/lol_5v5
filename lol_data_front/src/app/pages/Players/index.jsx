@@ -80,7 +80,6 @@ export default function Players() {
 
         //计算综合排名
         data.players = computeOverall(data.players, computeKeys)
-        // console.log(data.players)
 
         setPlayers(data.players)
       }
@@ -90,19 +89,16 @@ export default function Players() {
   useEffect(initPlayers, [])
 
   return (
-    // <div className="relative after:content-[''] after:bg-[url('/public/imgs/jinx.jpg')] after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-no-repeat after:bg-contain after:z-0 after:opacity-50">
     <div className="relative">
-      {/*  */}
       <div className="absolute left-0 top-0 w-full z-0">
-        {/* opacity-40 gradient-mask-b-0 */}
         <img
           className="opacity-40 gradient-mask-b-0"
           src={bgImg}
           alt="background"
         />
       </div>
-      <div className="relative px-24 pb-10 pt-20 max-w-screen-2xl mx-auto">
-        <h2 className="text-bright-text text-3xl font-bold tracking-wide pb-20">
+      <div className="relative px-24 pb-10 pt-12 max-w-screen-2xl mx-auto">
+        <h2 className="text-bright-text text-3xl font-bold tracking-wide pb-10">
           选手数据
         </h2>
         <Table

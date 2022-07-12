@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { formatNum } from '../../../utils'
 
-import sortNormal from './sortNormal.svg'
-import sortUp from './sortUp.svg'
-import sortDown from './sortDown.svg'
+import sortNormal from '../../svgs/sortNormal.svg'
+import sortUp from '../../svgs/sortUp.svg'
+import sortDown from '../../svgs/sortDown.svg'
 
 export default function Table(props) {
   const { unsortedPlayers, tableKeys, defaultSort } = props
@@ -65,29 +65,20 @@ export default function Table(props) {
     }
   }
 
-  // useEffect(() => {
-  //   const sortPlayers = () => {
-  //     const key = sort.tableKey
-  //     players.sort((a, b) => {
-  //       return b[key] - a[key]
-  //     })
-  //     setPlayers(players)
-  //   }
-  // }, [])
   useEffect(() => {
     setPlayers([...unsortedPlayers])
   }, [unsortedPlayers])
 
   return (
-    <div className="container mx-auto text-bright-text">
+    <div className="container mx-auto text-bright-text shadow-2xl">
       <div className="overflow-x-auto">
-        <table className="min-w-full">
+        <table className="w-full table table-zebra text-center">
           <thead className="bg-slate-800">
             <tr className="font-semibold text-stone-400">
-              <th title="排名" className="px-3 py-6 cursor-default">
+              <th title="排名" className="px-3 py-6 cursor-default text-base">
                 排名
               </th>
-              <th title="召唤师" className="px-3 py-6 cursor-default">
+              <th title="召唤师" className="px-3 py-6 cursor-default text-base">
                 召唤师
               </th>
               {/* 生成标签 */}
@@ -96,7 +87,7 @@ export default function Table(props) {
                 return length <= 6 ? (
                   <th
                     title={dataMap[tableKey].label}
-                    className="px-3 py-6"
+                    className="px-3 py-6 text-base"
                     key={index}
                   >
                     <div
@@ -109,8 +100,8 @@ export default function Table(props) {
                         src={
                           tableKey === sort.tableKey
                             ? sort.sort === 'up'
-                              ? sortUp
-                              : sortDown
+                              ? sortDown
+                              : sortUp
                             : sortNormal
                         }
                         alt="sort"
@@ -120,7 +111,7 @@ export default function Table(props) {
                 ) : (
                   <th
                     title={dataMap[tableKey].label}
-                    className="px-3 py-6"
+                    className="px-3 py-6 text-base"
                     key={index}
                   >
                     <div
@@ -140,8 +131,8 @@ export default function Table(props) {
                         src={
                           tableKey === sort.tableKey
                             ? sort.sort === 'up'
-                              ? sortUp
-                              : sortDown
+                              ? sortDown
+                              : sortUp
                             : sortNormal
                         }
                         alt="sort"
@@ -155,14 +146,7 @@ export default function Table(props) {
           <tbody>
             {players.map((player, index) => {
               return (
-                <tr
-                  className={
-                    index % 2 === 0
-                      ? 'text-center bg-slate-900'
-                      : 'text-center bg-slate-800'
-                  }
-                  key={player._id}
-                >
+                <tr key={player._id}>
                   <td className="px-3 py-6">
                     <span>{index + 1}</span>
                   </td>
