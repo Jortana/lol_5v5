@@ -6,8 +6,8 @@ const isPrd = process.env.NODE_ENV === 'production'
 
 //区分开发环境还是生产环境基础URL
 export const baseUrl = isPrd
-  ? 'http://jortana.fun:9000'
-  : 'http://localhost:9000'
+  ? 'https://jortana.fun:9000'
+  : 'https://localhost:9000'
 
 //设置axios基础路径
 const service = axios.create({
