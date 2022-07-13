@@ -26,11 +26,8 @@ app.use('/api', router)
 // 挂载统一处理服务端错误中间件
 app.use(errorHandler())
 
-const privateKey = fs.readFileSync('./keys/8085169_lol.jortana.fun.key', 'utf8')
-const certificate = fs.readFileSync(
-  './keys/8085169_lol.jortana.fun.pem',
-  'utf8'
-)
+const privateKey = fs.readFileSync('./keys/8110627_jortana.fun.key', 'utf8')
+const certificate = fs.readFileSync('./keys/8110627_jortana.fun.pem', 'utf8')
 const credentials = { key: privateKey, cert: certificate }
 const httpsServer = https.createServer(credentials, app)
 
