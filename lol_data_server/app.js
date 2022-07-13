@@ -1,4 +1,6 @@
+const fs = require('fs')
 const express = require('express')
+const https = require('https')
 const morgan = require('morgan')
 const cors = require('cors')
 const router = require('./api')
@@ -24,6 +26,21 @@ app.use('/api', router)
 // 挂载统一处理服务端错误中间件
 app.use(errorHandler())
 
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`)
+const isPrd = process.env.NODE_ENV === 'production'
+
+const privateKey = isPrd
+  ? fs.readFileSync('/home/ubuntu/cert/lol/8085169_lol.jortana.fun.key', 'utf8')
+  : fs.readFileSync('./keys/8085169_lol.jortana.fun.key', 'utf8')
+const certificate = isPrd
+  ? fs.readFileSync('/home/ubuntu/cert/lol/8085169_lol.jortana.fun.pem', 'utf8')
+  : fs.readFileSync('./keys/8085169_lol.jortana.fun.pem', 'utf8')
+const credentials = { key: privateKey, cert: certificate }
+const httpsServer = https.createServer(credentials, app)
+
+httpsServer.listen(PORT, () => {
+  console.log(`Server is running at https://localhost:${PORT}`)
 })
+
+// app.listen(PORT, () => {
+//   console.log(`Server is running at http://localhost:${PORT}`)
+// })
