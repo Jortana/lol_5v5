@@ -26,14 +26,11 @@ app.use('/api', router)
 // 挂载统一处理服务端错误中间件
 app.use(errorHandler())
 
-const isPrd = process.env.NODE_ENV === 'production'
-
-const privateKey = isPrd
-  ? fs.readFileSync('/home/ubuntu/cert/lol/8085169_lol.jortana.fun.key', 'utf8')
-  : fs.readFileSync('./keys/8085169_lol.jortana.fun.key', 'utf8')
-const certificate = isPrd
-  ? fs.readFileSync('/home/ubuntu/cert/lol/8085169_lol.jortana.fun.pem', 'utf8')
-  : fs.readFileSync('./keys/8085169_lol.jortana.fun.pem', 'utf8')
+const privateKey = fs.readFileSync('./keys/8085169_lol.jortana.fun.key', 'utf8')
+const certificate = fs.readFileSync(
+  './keys/8085169_lol.jortana.fun.pem',
+  'utf8'
+)
 const credentials = { key: privateKey, cert: certificate }
 const httpsServer = https.createServer(credentials, app)
 
